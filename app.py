@@ -59,7 +59,7 @@ def move_physical_motors_smoothly(emotion):
         
     emotion = emotion.lower()
     
-    # Define target angles (0 to 180) for Eyebrows and Mouth across emotions
+    # Define target angles (0 to 180) for Eyebrows and Mouth across emotions (Supporting all 11 model classes)
     if emotion in ["joy", "happiness"]:
         target_eyebrow, target_mouth = 70, 120
     elif emotion == "excitement":
@@ -68,7 +68,9 @@ def move_physical_motors_smoothly(emotion):
         target_eyebrow, target_mouth = 75, 115
     elif emotion == "surprise":
         target_eyebrow, target_mouth = 50, 140
-    elif emotion == "realization":
+    elif emotion == "fear":
+        target_eyebrow, target_mouth = 45, 135
+    elif emotion in ["realization", "disappointment"]:
         target_eyebrow, target_mouth = 80, 95
     elif emotion == "curiosity":
         target_eyebrow, target_mouth = 75, 100
@@ -80,8 +82,6 @@ def move_physical_motors_smoothly(emotion):
         target_eyebrow, target_mouth = 40, 80
     elif emotion == "disgust":
         target_eyebrow, target_mouth = 95, 85
-    elif emotion in ["nervousness", "fatigue"]:
-        target_eyebrow, target_mouth = 85, 90
     else:  # Default / Neutral state
         target_eyebrow, target_mouth = 90, 90
 
@@ -102,7 +102,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Load Hugging Face Pre-trained Emotion Detection Model
+# Load Hugging Face Pre-trained Emotion Detection Model (Supports all 11 distilroberta emotion categories)
 @st.cache_resource
 def load_emotion_model():
     return pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base", top_k=1)
@@ -192,21 +192,30 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<div class='main-title'>🤖 Advanced Silicone Humanoid Robot Head - Transition Test Engine</div>", unsafe_allow_html=True)
-st.markdown("<div class='sub-title'>Designed specifically to test smooth and fluid emotional transitions in real-time.</div>", unsafe_allow_html=True)
+# Main title updated: "Advanced Silicone" removed as requested
+st.markdown("<div class='main-title'>🤖 Humanoid Robot Head - Fluid Realistic Face Engine</div>", unsafe_allow_html=True)
+st.markdown("<div class='sub-title'>Designed specifically to test smooth and fluid emotional transitions in real-time across all 11 Hugging Face emotion classes.</div>", unsafe_allow_html=True)
 
 col_input, col_preview = st.columns([1.2, 1])
 
 with col_input:
     st.markdown("### 💬 Transition Test Conversation Input")
-    st.markdown("Sentences crafted to clearly demonstrate smooth emotional shifts:")
+    st.markdown("Sentences crafted to clearly demonstrate smooth emotional shifts across all 11 model emotions:")
     
-    # Specially crafted dialogue lines to clearly test and observe dramatic yet smooth transitions
+    # Conversation containing dialogue lines covering all 11 model emotions
     default_dialogue = """1. I am feeling completely calm, peaceful, and neutral right now.
 2. Oh wow, I am so extremely happy and joyful about this wonderful news!
-3. But wait, why did you say that? I am extremely angry and furious right now!
-4. Oh no, I feel so heartbroken, lonely, and deeply sad about what happened.
-5. Everything is back to normal, calm, and neutral again."""
+3. This is so exciting, I cannot wait for what comes next!
+4. Haha, that was genuinely hilarious and full of amusement!
+5. I am completely surprised and astonished by this sudden turn of events!
+6. Oh no, I am trembling and feeling so afraid of what might happen.
+7. Wait a second, I just realized how this works!
+8. I wonder why this is happening, such intense curiosity.
+9. Why did this happen? I am so confused and mixed up right now.
+10. This is so disappointing and frustrating, I feel terrible.
+11. Oh no, I feel so heartbroken, lonely, and deeply sad about what happened.
+12. Why did you do that? I am extremely angry and furious right now!
+13. Ugh, this is utterly disgusting and repulsive!"""
 
     conversation_input = st.text_area("Dialogue Lines:", value=default_dialogue, height=240, label_visibility="collapsed")
     start_button = st.button("🚀 Start Smooth Transition Test", use_container_width=True)
@@ -245,20 +254,22 @@ def get_fluid_robot_styles(emotion):
         return "transform: rotate(-6deg); border-top-color: #805ad5;", "transform: rotate(6deg); border-top-color: #805ad5;", "transform: scale(1.02);", "width: 80px; height: 30px; border-bottom: 4px solid #805ad5; border-radius: 0 0 40px 40px; background: rgba(128,90,213,0.15);", "transform: scale(1.05); background: #805ad5;", "😆 Laughing / Amusement"
     elif emotion == "surprise":
         return "transform: translateY(-6px) scaleY(1.3); border-top-color: #d69e2e;", "transform: translateY(-6px) scaleY(1.3); border-top-color: #d69e2e;", "transform: scale(1.15);", "width: 40px; height: 40px; border: 4px solid #d69e2e; border-radius: 50%; background: rgba(214,158,46,0.2);", "transform: scale(1.2); background: #d69e2e;", "😲 Surprised"
+    elif emotion == "fear":
+        return "transform: translateY(-8px) scaleY(1.3); border-top-color: #e53e3e;", "transform: translateY(-8px) scaleY(1.3); border-top-color: #e53e3e;", "transform: scale(1.2);", "width: 35px; height: 35px; border: 3px solid #e53e3e; border-radius: 50%; background: rgba(229,62,62,0.2);", "transform: scale(1.25); background: #e53e3e;", "😨 Fear"
     elif emotion == "realization":
         return "transform: translateY(-2px); border-top-color: #3182ce;", "transform: translateY(-2px); border-top-color: #3182ce;", "transform: scale(0.98);", "width: 55px; height: 16px; border-bottom: 4px solid #3182ce; border-radius: 10px;", "transform: scale(0.95); background: #3182ce;", "💡 Realization"
     elif emotion == "curiosity":
         return "transform: translateY(-4px) rotate(-6deg); border-top-color: #3182ce;", "transform: translateY(-4px) rotate(6deg); border-top-color: #3182ce;", "transform: scale(1.02);", "width: 45px; height: 20px; border: 3px solid #3182ce; border-radius: 50%;", "transform: scale(1); background: #3182ce;", "🤔 Curiosity"
     elif emotion == "confusion":
         return "transform: rotate(10deg); border-top-color: #dd6b20;", "transform: rotate(-5deg); border-top-color: #dd6b20;", "transform: scale(1);", "width: 60px; height: 16px; border-top: 4px solid #dd6b20; border-radius: 10px;", "transform: scale(1); background: #dd6b20;", "😕 Confused"
+    elif emotion == "disappointment":
+        return "transform: rotate(-10deg) translateY(2px); border-top: 4px solid #718096; border-radius: 0 50% 50% 0;", "transform: rotate(10deg) translateY(2px); border-top: 4px solid #718096; border-radius: 50% 0 0 50%;", "transform: scale(0.92);", "width: 65px; height: 14px; border-top: 4px solid #718096; border-radius: 20px;", "transform: scale(0.9); background: #718096;", "😞 Disappointment"
     elif emotion == "sadness":
         return "transform: rotate(-15deg) translateY(2px); border-top: 4px solid #3182ce; border-radius: 0 50% 50% 0;", "transform: rotate(15deg) translateY(2px); border-top: 4px solid #3182ce; border-radius: 50% 0 0 50%;", "transform: scale(0.9);", "width: 70px; height: 16px; border-top: 4px solid #3182ce; border-radius: 35px 35px 0 0;", "transform: scale(0.9); background: #3182ce;", "😢 Sad"
     elif emotion == "anger":
         return "transform: rotate(25deg) translateY(4px); border-top: 4px solid #e53e3e; border-radius: 50% 0 0 50%;", "transform: rotate(-25deg) translateY(4px); border-top: 4px solid #e53e3e; border-radius: 0 50% 50% 0;", "transform: scale(0.95);", "width: 70px; height: 10px; border-top: 4px solid #e53e3e; border-radius: 2px;", "transform: scale(0.95); background: #e53e3e;", "😡 Angry"
     elif emotion == "disgust":
         return "transform: translateY(-8px) rotate(-12deg); border-top: 4px solid #805ad5; border-radius: 50% 10% 0 0;", "transform: translateY(6px) rotate(12deg); border-top: 4px solid #805ad5; border-radius: 10% 50% 0 0;", "transform: scale(0.95);", "width: 65px; height: 16px; border-top: 4px solid #805ad5; border-radius: 20px 5px 20px 5px; background: rgba(128,90,213,0.1);", "transform: scale(0.95); background: #805ad5;", "🤢 Disgust"
-    elif emotion in ["nervousness", "fatigue"]:
-        return "transform: translateY(2px); border-top-color: #718096;", "transform: translateY(2px); border-top-color: #718096;", "transform: scale(0.85);", "width: 60px; height: 12px; background: #718096; border-radius: 6px;", "transform: scale(0.8); background: #718096;", "🥱 Sleepy / Bored"
     else:
         return "transform: rotate(0deg); border-top-color: #4a5568;", "transform: rotate(0deg); border-top-color: #4a5568;", "transform: scale(1);", "width: 50px; height: 10px; border-bottom: 3px solid #4a5568; border-radius: 0;", "transform: scale(1); background: #4a5568;", f"😐 Neutral ({emotion.capitalize()})"
 

@@ -212,7 +212,7 @@ with col_input:
     start_button = st.button("🚀 Start Smooth Transition Test", use_container_width=True)
 
 with col_preview:
-    st.markdown("### 🌟 Silicone Humanoid Face (Live Preview)")
+    st.markdown("### 🌟 Humanoid Face (Live Preview)")
     face_slot = st.empty()
     status_slot = st.empty()
     

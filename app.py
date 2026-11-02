@@ -97,7 +97,7 @@ def move_physical_motors_smoothly(emotion):
 # STREAMLIT UI & AI MODEL CONFIGURATION
 # ==========================================
 st.set_page_config(
-    page_title="Advanced Silicone Humanoid Robot Head - Fluid Realistic Face Engine",
+    page_title="Humanoid Robot Head - Fluid Realistic Face Engine",
     layout="wide",
     initial_sidebar_state="collapsed"
 )

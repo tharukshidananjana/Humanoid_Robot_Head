@@ -27,21 +27,22 @@ An interactive IoT and AI project developed for the SLT Mobitel R&D internship. 
    git clone [https://github.com/tharukshidananjana/Humanoid_Robot_Head.git](https://github.com/tharukshidananjana/Humanoid_Robot_Head.git)
    cd Humanoid_Robot_Head
    
-2.Activate Virtual Environment & Install Dependencies:
+2. Activate Virtual Environment & Install Dependencies:
 
   source venv/bin/activate
   pip install streamlit transformers torch RPi.GPIO
 
-3.Run the Application:
+3. Run the Application:
 
   streamlit run app.py
   
-4.Access the UI:
+4. Access the UI:
 
   Open your browser and go to http://localhost:8501.
 
-5.Live Link
+5. Live Link
    https://humanoidrobothead.streamlit.app/
+   
 
 💡 Industrial Applications
 

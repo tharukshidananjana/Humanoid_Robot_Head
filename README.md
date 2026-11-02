@@ -40,6 +40,9 @@ An interactive IoT and AI project developed for the SLT Mobitel R&D internship. 
 
   Open your browser and go to http://localhost:8501.
 
+5.Live Link
+   https://humanoidrobothead.streamlit.app/
+
 💡 Industrial Applications
 
 Smart customer service kiosks and interactive digital interfaces for telecommunication and enterprise environments.

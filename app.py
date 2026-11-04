@@ -203,17 +203,17 @@ with col_input:
     
     
     # Conversation containing dialogue lines covering all 11 model emotions
-    default_dialogue = """1. I am feeling completely calm, peaceful, and neutral right now.
-2. Oh wow, I am so extremely happy and joyful about this wonderful news!
-3. This is so exciting, I cannot wait for what comes next!
-4. Haha, that was genuinely hilarious and full of amusement!
-5. I am completely surprised and astonished by this sudden turn of events!
-6. Oh no, I am trembling and feeling so afraid of what might happen.
-7. Wait a second, I just realized how this works!
-8. I wonder why this is happening, such intense curiosity.
-9. Why did this happen? I am so confused and mixed up right now.
-10. This is so disappointing and frustrating, I feel terrible.
-11. Oh no, I feel so heartbroken, lonely, and deeply sad about what happened.
+    default_dialogue = default_dialogue = """1. I am feeling completely calm, peaceful, and neutral right now.
+2. I wonder why this is happening, such intense curiosity.
+3. Wait a second, I just realized how this works!
+4. I am completely surprised and astonished by this sudden turn of events!
+5. Oh wow, I am so extremely happy and joyful about this wonderful news!
+6. This is so exciting, I cannot wait for what comes next!
+7. Haha, that was genuinely hilarious and full of amusement!
+8. Why did this happen? I am so confused and mixed up right now.
+9. This is so disappointing and frustrating, I feel terrible.
+10. Oh no, I feel so heartbroken, lonely, and deeply sad about what happened.
+11. Oh no, I trembling and feeling so afraid of what might happen.
 12. Why did you do that? I am extremely angry and furious right now!
 13. Ugh, this is utterly disgusting and repulsive!"""
 

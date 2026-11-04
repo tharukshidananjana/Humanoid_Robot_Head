@@ -200,16 +200,17 @@ with col_input:
     st.markdown("### 💬 Transition Test Conversation Input")
     
     default_dialogue = """1. I am feeling completely calm, peaceful, and neutral right now.
-2. I wonder why this is happening, such intense curiosity.
-3. I am completely surprised and astonished by this sudden turn of events!
-4. Oh wow, I am so extremely happy and joyful about this wonderful news!
-5. Haha, that was genuinely hilarious and full of amusement!
-6. Why did this happen? I am so confused and mixed up right now.
-7. This is so disappointing and frustrating, I feel terrible.
-8. Oh no, I feel so heartbroken, lonely, and deeply sad about what happened.
-9. Oh no, I trembling and feeling so afraid of what might happen.
-10. Why did you do that? I am extremely angry and furious right now!
-11. Ugh, this is utterly disgusting and repulsive!"""
+2. Everything is quiet and normal around me, just resting peacefully.
+3. I wonder why this is happening, such intense curiosity.
+4. I am completely surprised and astonished by this sudden turn of events!
+5. Oh wow, I am so extremely happy and joyful about this wonderful news!
+6. Haha, that was genuinely hilarious and full of amusement!
+7. Why did this happen? I am so confused and mixed up right now.
+8. This is so disappointing and frustrating, I feel terrible.
+9. Oh no, I feel so heartbroken, lonely, and deeply sad about what happened.
+10. Oh no, I am trembling and feeling so afraid of what might happen.
+11. Why did you do that? I am extremely angry and furious right now!
+12. Ugh, this is utterly disgusting and repulsive!"""
 
     conversation_input = st.text_area("Dialogue Lines:", value=default_dialogue, height=240, label_visibility="collapsed")
     start_button = st.button("🚀 Start Smooth Transition Test", use_container_width=True)

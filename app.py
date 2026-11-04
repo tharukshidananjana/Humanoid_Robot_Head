@@ -200,7 +200,7 @@ col_input, col_preview = st.columns([1.2, 1])
 
 with col_input:
     st.markdown("### 💬 Transition Test Conversation Input")
-    st.markdown("Sentences crafted to clearly demonstrate smooth emotional shifts across all 11 model emotions:")
+    
     
     # Conversation containing dialogue lines covering all 11 model emotions
     default_dialogue = """1. I am feeling completely calm, peaceful, and neutral right now.
